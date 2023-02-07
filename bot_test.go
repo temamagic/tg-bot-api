@@ -1,6 +1,7 @@
 package tgbotapi
 
 import (
+	"io/ioutil"
 	"net/http"
 	"os"
 	"testing"
@@ -138,7 +139,7 @@ func TestSendWithNewPhoto(t *testing.T) {
 func TestSendWithNewPhotoWithFileBytes(t *testing.T) {
 	bot, _ := getBot(t)
 
-	data, _ := os.ReadFile("tests/image.jpg")
+	data, _ := ioutil.ReadFile("tests/image.jpg")
 	b := FileBytes{Name: "image.jpg", Bytes: data}
 
 	msg := NewPhoto(ChatID, b)
@@ -194,7 +195,7 @@ func TestSendNewPhotoToChannel(t *testing.T) {
 func TestSendNewPhotoToChannelFileBytes(t *testing.T) {
 	bot, _ := getBot(t)
 
-	data, _ := os.ReadFile("tests/image.jpg")
+	data, _ := ioutil.ReadFile("tests/image.jpg")
 	b := FileBytes{Name: "image.jpg", Bytes: data}
 
 	msg := NewPhotoToChannel(Channel, b)
