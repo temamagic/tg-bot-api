@@ -1,7 +1,7 @@
 package tgbotapi
 
 import (
-	"encoding/json"
+	"github.com/goccy/go-json"
 	"reflect"
 	"strconv"
 )
