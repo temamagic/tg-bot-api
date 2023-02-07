@@ -21,4 +21,4 @@ As a basis, I also take another [repository](https://github.com/OvyFlash/telegra
 
 ## Install
 
-`go get -u github.com/temamagic/telegram-bot-api`.
+`go get -u github.com/temamagic/tg-bot-api`.
