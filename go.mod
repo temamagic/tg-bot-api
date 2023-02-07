@@ -1,4 +1,4 @@
-module github.com/go-telegram-bot-api/telegram-bot-api/v5
+module github.com/temamagic/telegram-bot-api
 
 go 1.16
 
