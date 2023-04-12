@@ -2704,6 +2704,78 @@ func (config DeleteMyCommandsConfig) params() (Params, error) {
 	return params, err
 }
 
+// SetMyDescriptionConfig sets a description for the bot.
+type SetMyDescriptionConfig struct {
+	Description  string
+	LanguageCode string
+}
+
+func (config SetMyDescriptionConfig) method() string {
+	return "setMyDescription"
+}
+
+func (config SetMyDescriptionConfig) params() (Params, error) {
+	params := make(Params)
+
+	params.AddNonEmpty("description", config.Description)
+	params.AddNonEmpty("language_code", config.LanguageCode)
+
+	return params, nil
+}
+
+// GetMyDescriptionConfig gets a description for the bot.
+type GetMyDescriptionConfig struct {
+	LanguageCode string
+}
+
+func (config GetMyDescriptionConfig) method() string {
+	return "getMyDescription"
+}
+
+func (config GetMyDescriptionConfig) params() (Params, error) {
+	params := make(Params)
+
+	params.AddNonEmpty("language_code", config.LanguageCode)
+
+	return params, nil
+}
+
+// SetMyShortDescriptionConfig sets a short description for the bot.
+type SetMyShortDescriptionConfig struct {
+	ShortDescription string
+	LanguageCode     string
+}
+
+func (config SetMyShortDescriptionConfig) method() string {
+	return "setMyShortDescription"
+}
+
+func (config SetMyShortDescriptionConfig) params() (Params, error) {
+	params := make(Params)
+
+	params.AddNonEmpty("short_description", config.ShortDescription)
+	params.AddNonEmpty("language_code", config.LanguageCode)
+
+	return params, nil
+}
+
+// GetMyShortDescriptionConfig gets a short description for the bot.
+type GetMyShortDescriptionConfig struct {
+	LanguageCode string
+}
+
+func (config GetMyShortDescriptionConfig) method() string {
+	return "getMyShortDescription"
+}
+
+func (config GetMyShortDescriptionConfig) params() (Params, error) {
+	params := make(Params)
+
+	params.AddNonEmpty("language_code", config.LanguageCode)
+
+	return params, nil
+}
+
 // SetChatMenuButtonConfig changes the bot's menu button in a private chat,
 // or the default menu button.
 type SetChatMenuButtonConfig struct {
