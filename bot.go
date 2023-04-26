@@ -30,7 +30,7 @@ type BotAPI struct {
 	Client          HTTPClient `json:"-"`
 	shutdownChannel chan interface{}
 
-	apiEndpoint string
+	ApiEndpoint string
 }
 
 // NewBotAPI creates a new BotAPI instance.
@@ -59,7 +59,7 @@ func NewBotAPIWithClient(token, apiEndpoint string, client HTTPClient) (*BotAPI,
 		Buffer:          100,
 		shutdownChannel: make(chan interface{}),
 
-		apiEndpoint: apiEndpoint,
+		ApiEndpoint: apiEndpoint,
 	}
 
 	self, err := bot.GetMe()
@@ -74,7 +74,7 @@ func NewBotAPIWithClient(token, apiEndpoint string, client HTTPClient) (*BotAPI,
 
 // SetAPIEndpoint changes the Telegram Bot API endpoint used by the instance.
 func (bot *BotAPI) SetAPIEndpoint(apiEndpoint string) {
-	bot.apiEndpoint = apiEndpoint
+	bot.ApiEndpoint = apiEndpoint
 }
 
 func buildParams(in Params) url.Values {
@@ -97,7 +97,7 @@ func (bot *BotAPI) MakeRequest(endpoint string, params Params) (*APIResponse, er
 		log.Printf("Endpoint: %s, params: %v\n", endpoint, params)
 	}
 
-	method := fmt.Sprintf(bot.apiEndpoint, bot.Token, endpoint)
+	method := fmt.Sprintf(bot.ApiEndpoint, bot.Token, endpoint)
 
 	values := buildParams(params)
 
@@ -222,7 +222,7 @@ func (bot *BotAPI) UploadFiles(endpoint string, params Params, files []RequestFi
 		log.Printf("Endpoint: %s, params: %v, with %d files\n", endpoint, params, len(files))
 	}
 
-	method := fmt.Sprintf(bot.apiEndpoint, bot.Token, endpoint)
+	method := fmt.Sprintf(bot.ApiEndpoint, bot.Token, endpoint)
 
 	req, err := http.NewRequest("POST", method, r)
 	if err != nil {
