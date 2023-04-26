@@ -11,11 +11,3 @@ func (m *Message) DeleteAfter(bot *BotAPI, duration time.Duration) {
 		bot.Request(DeleteMessageConfig{MessageID: msg.MessageID, ChatID: msg.Chat.ID})
 	}(m)
 }
-
-// DeleteMessage deletes message
-func (bot *BotAPI) DeleteMessage(chatID int64, messageID int) (*APIResponse, error) {
-	return bot.Request(DeleteMessageConfig{
-		ChatID:    chatID,
-		MessageID: messageID,
-	})
-}

@@ -692,6 +692,14 @@ func (bot *BotAPI) CopyMessage(config CopyMessageConfig) (MessageID, error) {
 	return messageID, err
 }
 
+// DeleteMessage deletes message
+func (bot *BotAPI) DeleteMessage(chatID int64, messageID int) (*APIResponse, error) {
+	return bot.Request(DeleteMessageConfig{
+		ChatID:    chatID,
+		MessageID: messageID,
+	})
+}
+
 // AnswerWebAppQuery sets the result of an interaction with a Web App and send a
 // corresponding message on behalf of the user to the chat from which the query originated.
 func (bot *BotAPI) AnswerWebAppQuery(config AnswerWebAppQueryConfig) (SentWebAppMessage, error) {
