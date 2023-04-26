@@ -1,4 +1,26 @@
 
+<a name="v6.0.1"></a>
+## [v6.0.1](https://github.com/temamagic/tgbot/compare/v6.0.0...v6.0.1)
+
+> 2023-04-26
+
+### Fix
+
+* add CreateForumTopic & DeleteForumTopic helpers 
+* move DeleteMessage helper function 
+* add DeleteMessage helper function 
+
+
+<a name="v6.0.0"></a>
+## [v6.0.0](https://github.com/temamagic/tgbot/compare/v5.6.0...v6.0.0)
+
+> 2023-04-26
+
+### Feat
+
+* try use v6 module 
+
+
 <a name="v5.6.0"></a>
 ## [v5.6.0](https://github.com/temamagic/tgbot/compare/v0.6.9...v5.6.0)
 
