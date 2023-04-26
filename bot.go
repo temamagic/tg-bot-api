@@ -700,6 +700,26 @@ func (bot *BotAPI) DeleteMessage(chatID int64, messageID int) (*APIResponse, err
 	})
 }
 
+// CreateForumTopic creates a new forum topic with name
+func (bot *BotAPI) CreateForumTopic(chatID int64, name string) (Message, error) {
+	return bot.Send(CreateForumTopicConfig{
+		BaseForum: BaseForum{
+			ChatID: chatID,
+		},
+		Name: name,
+	})
+}
+
+// DeleteForumTopic deletes a forum topic
+func (bot *BotAPI) DeleteForumTopic(chatID int64, threadID int) (*APIResponse, error) {
+	return bot.Request(DeleteForumTopicConfig{
+		BaseForum: BaseForum{
+			ChatID: chatID,
+		},
+		MessageThreadID: threadID,
+	})
+}
+
 // AnswerWebAppQuery sets the result of an interaction with a Web App and send a
 // corresponding message on behalf of the user to the chat from which the query originated.
 func (bot *BotAPI) AnswerWebAppQuery(config AnswerWebAppQueryConfig) (SentWebAppMessage, error) {
